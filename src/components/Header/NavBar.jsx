@@ -1,0 +1,41 @@
+import { Link, NavLink } from 'react-router';
+import userImg from "../../assets/user.png";
+import { use } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
+
+const NavBar = () => {
+  const { user, logOutUser, loading } = use(AuthContext);
+
+
+
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        console.log('logged out successfully!')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  return (
+    <div className='flex items-center justify-between pt-5'>
+      <div></div>
+      <div className='nav flex gap-5 text-accent'>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/career">Career</NavLink>
+      </div>
+      {loading ? <span className="loading loading-spinner loading-md "></span> : <div className='login-btn flex items-center gap-5'>
+        {user?.photoURL ? <img src={user.photoURL} className='w-10 h-10 rounded-full' alt="User" /> : <img src={userImg} alt="User" />}
+        {
+          user ? <button onClick={handleLogOut} className='btn btn-primary px-8 rounded-none'>Log Out</button> :
+            <Link to="/auth/login" className='btn btn-primary px-10 rounded-none'>Login</Link>
+        }
+      </div>}
+    </div>
+  );
+};
+
+export default NavBar;
