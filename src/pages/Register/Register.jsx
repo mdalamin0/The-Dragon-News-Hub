@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.config';
+import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 
 const Register = () => {
   const { creatUser, setUser, loading, setLoading} = use(AuthContext);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
 
@@ -74,7 +76,11 @@ const Register = () => {
             <input type="email" name='email' required className="input focus:outline-0 w-full bg-base-200 border-0" placeholder="Enter your email address" />
             {/* password */}
             <label className="label font-semibold text-xl">Password</label>
-            <input type="password" name='password' required className="input focus:outline-0 w-full bg-base-200 border-0 " placeholder="Enter your password" />
+            <div className='relative'>
+              <input type={showPassword ? "text" : "password"} name='password' required className="input focus:outline-0 w-full bg-base-200 border-0 " placeholder="Enter your password" />
+              <span className='cursor-pointer absolute top-2.5 right-4 text-accent' onClick={() => setShowPassword(!showPassword)}>{showPassword ? <IoEye size={22} /> : <IoEyeOffSharp size={22} />}</span>
+            </div>
+
             {/* terms & conditions */}
             <label className="label">
               <input type="checkbox" name='terms' className="checkbox" />
