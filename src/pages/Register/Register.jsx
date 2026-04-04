@@ -5,7 +5,7 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.config';
 
 const Register = () => {
-  const { creatUser, setUser, loading } = use(AuthContext);
+  const { creatUser, setUser, loading, setLoading} = use(AuthContext);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
   const navigate = useNavigate();
@@ -45,6 +45,7 @@ const Register = () => {
           })
           .catch(error => {
             setErrorMessage(error.message)
+            setLoading(false)
           })
         setUser(result.user)
         setSuccessMessage(true)
@@ -53,6 +54,7 @@ const Register = () => {
       })
       .catch(error => {
         setErrorMessage(error.message)
+        setLoading(false)
       })
   }
   return (
@@ -78,9 +80,10 @@ const Register = () => {
               <input type="checkbox" name='terms' className="checkbox" />
               Accept Term & Conditions
             </label>
-            {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
-            {successMessage && <p className='text-green-600'>User Register Successfully!</p>}
+           
             <button type='submit' className="btn btn-primary mt-4">{loading ? <span className="loading loading-spinner loading-xs"></span> : "Register"}</button>
+             {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+            {successMessage && <p className='text-green-600'>User Register Successfully!</p>}
             <p className='font-semibold text-accent mt-6 text-center'>Already Have An Account ? <Link to="/auth/login" className='text-secondary'>Login</Link></p>
           </form>
         </div>

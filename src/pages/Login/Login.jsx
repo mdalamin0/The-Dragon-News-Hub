@@ -1,13 +1,15 @@
-import React, { use, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
-  const {signInUser, setUser, loading} = use(AuthContext);
+  const {signInUser, setUser, loading, setLoading, resetPassowrd} = use(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState(false);
     const  navigate = useNavigate();
     const location = useLocation();
+    const emailRef = useRef(null);
+    
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,10 +28,22 @@ const Login = () => {
     })
     .catch(error => {
       setErrorMessage(error.message)
+      setLoading(false)
     })
 
   }
 
+  const handleForgotPassowrd = () => {
+    setErrorMessage("")
+    const email = emailRef?.current?.value;
+    resetPassowrd(email)
+    .then(() => {
+      alert("Password reset email sent. Check your email!")
+    })
+    .catch(error => {
+      setErrorMessage(error.message)
+    })
+  }
   return (
     <div className='min-h-screen mt-20'>
       <div className="card bg-base-100 w-full max-w-xl mx-auto shrink-0 px-16 py-10">
@@ -38,11 +52,11 @@ const Login = () => {
           <form onSubmit={handleLogin} className="fieldset space-y-2 pt-8">
             {/* email */}
             <label className="label font-semibold text-xl">Email</label>
-            <input type="email" name='email' required className="input focus:outline-0 w-full bg-base-200 border-0" placeholder="Enter your email address" />
+            <input type="email" name='email'  ref={emailRef} required className="input focus:outline-0 w-full bg-base-200 border-0" placeholder="Enter your email address" />
             {/* password */}
             <label className="label font-semibold text-xl">Password</label>
             <input type="password" name='password' required className="input focus:outline-0 w-full bg-base-200 border-0 " placeholder="Enter your password" />
-            <div><a className="link link-hover font-semibold text-accent">Forgot password?</a></div>
+            <div><a onClick={handleForgotPassowrd} className="link link-hover font-semibold text-accent">Forgot password?</a></div>
             
             <button type='submit' className="btn btn-primary mt-4">{loading ? <span className="loading loading-spinner loading-xs"></span> : "Login"}</button>
             {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
