@@ -11,7 +11,7 @@ const SocialLogin = () => {
       setUser(result.user)
     })
     .catch(error => {
-      console.log(error)
+      alert(error.message)
     })
   }
 
@@ -19,10 +19,9 @@ const SocialLogin = () => {
     loginWithGitHub()
     .then(result => {
       setUser(result.user)
-      console.log(result.user)
     })
     .catch(error => {
-      console.log(error)
+      alert(error.message)
     })
   }
   return (

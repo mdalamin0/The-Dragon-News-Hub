@@ -8,7 +8,6 @@ const Login = () => {
     const [successMessage, setSuccessMessage] = useState(false);
     const  navigate = useNavigate();
     const location = useLocation();
-    console.log(loading)
 
   const handleLogin = (e) => {
     e.preventDefault();

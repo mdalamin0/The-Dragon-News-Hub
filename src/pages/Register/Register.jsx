@@ -41,10 +41,10 @@ const Register = () => {
           photoURL: photo
         })
           .then(() => {
-            console.log('profile updated')
+
           })
           .catch(error => {
-            console.log(error)
+            setErrorMessage(error.message)
           })
         setUser(result.user)
         setSuccessMessage(true)
@@ -52,7 +52,6 @@ const Register = () => {
 
       })
       .catch(error => {
-        console.log(error.message)
         setErrorMessage(error.message)
       })
   }
