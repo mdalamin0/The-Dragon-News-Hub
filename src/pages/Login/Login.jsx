@@ -52,10 +52,10 @@ const Login = () => {
   }
   return (
     <div className='min-h-screen mt-20'>
-      <div className="card bg-base-100 w-full max-w-xl mx-auto shrink-0 px-16 py-10">
+      <div className="card bg-base-100 w-full max-w-xl mx-auto shrink-0 sm:px-8 sm:py-5 md:px-16 md:py-10">
         <div className="card-body">
-          <h2 className='font-semibold text-2xl text-center border-b-2 border-base-200 pb-8'>Login your account</h2>
-          <form onSubmit={handleLogin} className="fieldset space-y-2 pt-8">
+          <h2 className='font-semibold text-xl md:text-2xl text-center border-b-2 border-base-200 pb-8'>Please Login your account!</h2>
+          <form onSubmit={handleLogin} className="fieldset space-y-2 pt-5 md:pt-8">
             {/* email */}
             <label className="label font-semibold text-xl">Email</label>
             <input type="email" name='email'  ref={emailRef} required className="input focus:outline-0 w-full bg-base-200 border-0" placeholder="Enter your email address" />
@@ -63,7 +63,7 @@ const Login = () => {
             <label className="label font-semibold text-xl">Password</label>
             <div className='relative'>
               <input type={showPassword ? "text" : "password"} name='password' required className="input focus:outline-0 w-full bg-base-200 border-0 " placeholder="Enter your password" />
-            <span className='cursor-pointer absolute top-2.5 right-4 text-accent' onClick={() => setShowPassword(!showPassword)}>{showPassword ? <IoEye size={22} /> : <IoEyeOffSharp size={22} />}</span>
+            <span className='cursor-pointer absolute top-2.5 right-4 text-accent' onClick={() => setShowPassword(!showPassword)}>{showPassword ? <IoEye size={20} /> : <IoEyeOffSharp size={20} />}</span>
             </div>
             <div><a onClick={handleForgotPassowrd} className="link link-hover font-semibold text-accent">Forgot password?</a></div>
             

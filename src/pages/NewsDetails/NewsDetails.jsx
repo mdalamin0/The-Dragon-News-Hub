@@ -14,13 +14,13 @@ const NewsDetails = () => {
   }, [newsData, newsId])
 
   return (
-    <div className='my-container mt-12.5'>
+    <div className='my-container my-12.5'>
       <Header />
-      <main className='grid grid-cols-12 gap-8 mt-8'>
-        <section className='col-span-9'>
+      <main className='grid grid-cols-1 md:grid-cols-12 gap-8 mt-8'>
+        <section className='md:col-span-9'>
           <NewsDetailsCard newsDetailsData={newsDetailsData} />
         </section>
-        <aside className='col-span-3'>
+        <aside className=' md:col-span-3'>
           <RightAside />
         </aside>
       </main>

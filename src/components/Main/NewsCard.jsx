@@ -42,7 +42,7 @@ const NewsCard = ({ news }) => {
 
       {/* Title */}
       <div className="px-4 pt-4">
-        <h2 className="font-bold text-xl leading-snug">
+        <h2 className="font-semibold md:font-bold md:text-xl leading-snug">
           {title}
         </h2>
       </div>
