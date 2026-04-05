@@ -2,13 +2,18 @@ import React, { use } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../context/AuthContext';
+import { useLocation, useNavigate } from 'react-router';
 
 const SocialLogin = () => {
   const {loginWithGoogle, setUser, loginWithGitHub} = use(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleGoogleLogin = () => {
     loginWithGoogle()
     .then(result => {
       setUser(result.user)
+      navigate("/")
     })
     .catch(error => {
       alert(error.message)
@@ -19,6 +24,7 @@ const SocialLogin = () => {
     loginWithGitHub()
     .then(result => {
       setUser(result.user)
+      navigate(`${location?.state ? location?.state : "/"}`)
     })
     .catch(error => {
       alert(error.message)

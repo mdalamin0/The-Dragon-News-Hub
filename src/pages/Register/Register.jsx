@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.config';
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
   const { creatUser, setUser, loading, setLoading} = use(AuthContext);
@@ -61,6 +62,9 @@ const Register = () => {
   }
   return (
     <div className='min-h-screen mt-20'>
+      <Helmet>
+        <title>The Dragon News | Register</title>
+      </Helmet>
       <div className="card bg-base-100 w-full max-w-xl mx-auto shrink-0 sm:px-8 sm:py-5 md:px-16 md:py-10">
         <div className="card-body">
           <h2 className='font-semibold text-xl md:text-2xl text-center border-b-2 border-base-200 pb-8'> Register your account!</h2>

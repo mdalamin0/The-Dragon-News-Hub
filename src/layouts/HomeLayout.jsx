@@ -14,7 +14,7 @@ const HomeLayout = () => {
 
   return (
     <div className="drawer lg:drawer-open my-container">
-
+     
       {/* Toggle input */}
       <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
 
@@ -27,9 +27,6 @@ const HomeLayout = () => {
           <section className='mt-7.5'>
             <LatestNews />
           </section>
-
-
-
           <nav>
             <NavBar />
           </nav>

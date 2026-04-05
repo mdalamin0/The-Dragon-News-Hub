@@ -18,7 +18,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className='flex flex-col md:flex-row gap-3 items-center justify-between pt-5'>
+    <div className='flex flex-col sm:flex-row gap-3 items-center justify-between pt-5'>
       <div></div>
       <div className='nav flex gap-5 text-accent'>
         <NavLink to="/">Home</NavLink>
