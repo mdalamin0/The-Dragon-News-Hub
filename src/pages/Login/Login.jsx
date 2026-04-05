@@ -2,6 +2,7 @@ import React, { use, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
+import SocialLogin from '../../components/Main/SocialLogin';
 
 
 
@@ -71,6 +72,9 @@ const Login = () => {
             {successMessage && <p className='text-green-500'>User Logged In Successfully!</p>}
             <p className='font-semibold text-accent mt-7.5 text-center'>Dont’t Have An Account ?  <Link to="/auth/register" className='text-secondary'>Register</Link></p>
           </form>
+          <div className='lg:hidden'>
+            <SocialLogin/>
+          </div>
         </div>
       </div>
     </div>
