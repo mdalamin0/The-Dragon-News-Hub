@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Outlet, useNavigation } from 'react-router';
 import Header from '../components/Header/Header';
 import LatestNews from '../components/Header/LatestNews';
@@ -12,12 +12,18 @@ import Footer from '../components/Footer/Footer';
 
 const HomeLayout = () => {
   const { state } = useNavigation();
+  const drawerRef = useRef();
+  const closeDrawer = () => {
+    if (drawerRef.current) {
+      drawerRef.current.checked = false;
+    }
+  }
 
   return (
     <div className="drawer lg:drawer-open my-container">
-     
+
       {/* Toggle input */}
-      <input id="drawer-toggle" type="checkbox" className="drawer-toggle" />
+      <input id="drawer-toggle" type="checkbox" ref={drawerRef} className="drawer-toggle" />
 
       {/* Main Content */}
       <div className="drawer-content">
@@ -61,7 +67,7 @@ const HomeLayout = () => {
           </aside>
         </main>
         <footer>
-          <Footer/>
+          <Footer />
         </footer>
       </div>
 
@@ -70,7 +76,7 @@ const HomeLayout = () => {
         <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
 
         <div className="menu p-4 w-64 min-h-full bg-base-200">
-          <LeftAside />
+          <LeftAside closeDrawer={closeDrawer} />
         </div>
       </div>
 
