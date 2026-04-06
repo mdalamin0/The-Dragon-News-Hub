@@ -4,7 +4,7 @@ import NewsCard from '../../components/Main/NewsCard';
 
 const CategoryNews = () => {
   const { categoryId } = useParams();
-  const id = parseInt(categoryId)
+  const id = Number(categoryId)
   const newsData = useLoaderData();
   const [categoryNews, setCategoryNews] = useState([]);
 
@@ -23,11 +23,17 @@ const CategoryNews = () => {
 
   }, [newsData, id])
   return (
-    <div className='grid grid-cols-1 gap-8 mt-5'>
-      {
-        categoryNews.map(news => <NewsCard key={news.id} news={news}></NewsCard>)
+    <>
+      {categoryNews.length === 0 ? <div>
+        <h2 className='font-semibold md:font-bold text-xl text-center py-20 text-accent'>News Not Found!</h2>
+      </div> :
+        <div className='grid grid-cols-1 gap-8 mt-5'>
+          {
+            categoryNews.map(news => <NewsCard key={news.id} news={news}></NewsCard>)
+          }
+        </div>
       }
-    </div>
+    </>
   );
 };
 

@@ -32,18 +32,21 @@ const NavBar = () => {
           flex items-center gap-3 sm:gap-5
           w-full sm:w-auto
           justify-between sm:justify-end
-          bg-base-200 sm:bg-transparent
+          bg-base-300 sm:bg-transparent
           px-4 py-2 sm:p-0
           rounded-xl sm:rounded-none
         "
         >
           {/* Profile */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <img
-              src={user?.photoURL || userImg}
+           
+            {
+              user?.photoURL ? <img  src={user?.photoURL}
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
-              alt="User"
-            />
+              alt="User"/> : user?.displayName ? <span className="bg-secondary flex items-center justify-center text-white font-medium w-10 h-10 sm:w-12 sm:h-12 rounded-full text-[18px]">{user.displayName[0]}</span> : <img  src={userImg}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
+              alt="User"/>
+            }
             <div className="sm:hidden">
               <h4 className="text-sm font-semibold">
                 {user?.displayName || "Guest"}
