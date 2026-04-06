@@ -7,6 +7,7 @@ import LeftAside from '../components/Main/LeftAside';
 import RightAside from '../components/Main/RightAside';
 import Loading from '../components/Loader/Loading';
 import { GiHamburgerMenu } from "react-icons/gi";
+import Footer from '../components/Footer/Footer';
 
 
 const HomeLayout = () => {
@@ -59,6 +60,9 @@ const HomeLayout = () => {
             <RightAside />
           </aside>
         </main>
+        <footer>
+          <Footer/>
+        </footer>
       </div>
 
       {/* Drawer Sidebar (Mobile) */}

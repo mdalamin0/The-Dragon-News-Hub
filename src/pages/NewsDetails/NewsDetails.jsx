@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router';
 import Header from '../../components/Header/Header';
 import RightAside from '../../components/Main/RightAside';
 import NewsDetailsCard from '../../components/NewsDetailsCard/NewsDetailsCard';
+import Footer from '../../components/Footer/Footer';
 
 const NewsDetails = () => {
   const [newsDetailsData, setNewsDetailsData] = useState({});
@@ -14,7 +15,7 @@ const NewsDetails = () => {
   }, [newsData, newsId])
 
   return (
-    <div className='my-container my-12.5'>
+    <div className='my-container mt-12.5'>
       <Header />
       <main className='grid grid-cols-1 md:grid-cols-12 gap-8 mt-8'>
         <section className='md:col-span-9'>
@@ -24,6 +25,7 @@ const NewsDetails = () => {
           <RightAside />
         </aside>
       </main>
+      <Footer/>
     </div>
   );
 };

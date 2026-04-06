@@ -25,7 +25,6 @@ const NavBar = () => {
         <NavLink to="/about">About</NavLink>
         <NavLink to="/career">Career</NavLink>
       </div>
-      <div className='flex items-center gap-3'>
         {loading ? <span className="loading loading-spinner loading-md "></span> : <div className='login-btn flex items-center gap-5'>
           {user?.photoURL ? <img src={user.photoURL} className='w-12 h-12 rounded-full' alt="User" /> : <img src={userImg} className='w-12 h-12 rounded-full' alt="User" />}
           {
@@ -33,8 +32,6 @@ const NavBar = () => {
               <Link to="/auth/login" className='btn btn-primary px-6 rounded-none'>Login</Link>
           }
         </div>}
-        <Link to="/auth/register" className='btn btn-secondary btn-outline rounded-none'>Sign Up</Link>
-      </div>
     </div>
   );
 };
