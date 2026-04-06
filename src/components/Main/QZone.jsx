@@ -11,13 +11,13 @@ const QZone = () => {
       <div className='bg-base-200 p-3'>
         <h2 className='text-xl font-semibold mb-5'>Q-Zone</h2>
         <div className='space-y-5'>
-          <img src={swimmingImg} className='w-full' alt="swimming" />
-          <img src={classImg} className='w-full' alt="class" />
-          <img src={playgroundImg} className='w-full' alt="playground" />
+          <img  src={swimmingImg} loading="lazy" className='w-full' alt="swimming" />
+          <img src={classImg} loading="lazy" className='w-full' alt="class" />
+          <img src={playgroundImg} loading="lazy" className='w-full' alt="playground" />
         </div>
       </div>
       <div>
-        <img src={bgImg} className='w-full' alt="" />
+        <img src={bgImg} loading="lazy" className='w-full' alt="" />
       </div>
     </>
   );

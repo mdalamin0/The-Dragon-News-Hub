@@ -23,6 +23,7 @@ const NewsCard = ({ news }) => {
         <div className="flex items-center gap-3">
           <img
             src={author.img}
+            loading="lazy"
             alt="author"
             className="w-10 h-10 rounded-full"
           />
@@ -52,6 +53,7 @@ const NewsCard = ({ news }) => {
         <img
           src={thumbnail_url}
           alt="thumbnail"
+          loading="lazy"
           className="rounded-xl w-full object-cover max-h-[300px]"
         />
       </figure>
@@ -60,7 +62,7 @@ const NewsCard = ({ news }) => {
       <div className="px-4 py-4 ">
         <p className="text-accent">
           {details.length > 300 ? `${details.slice(0, 300)}...` : details}
-          <Link to={`/news-details/${id}`} className="btn btn-link text-orange-500 p-0 ml-2">Read More</Link>
+          <Link to={`/news-details/${id}`} onClick={() => window.scrollTo(0,0)} className="btn btn-link text-orange-500 p-0 ml-2">Read More</Link>
         </p>
       </div>
 

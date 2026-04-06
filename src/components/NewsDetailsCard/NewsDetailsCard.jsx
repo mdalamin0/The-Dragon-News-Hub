@@ -12,7 +12,7 @@ const NewsDetailsCard = ({newsDetailsData}) => {
       </Helmet>
       <h2 className='font-semibold text-xl mb-5'>Dragon News</h2>
       <div className='border-2 border-base-200 rounded p-4 md:p-7.5 space-y-5'>
-        <img src={thumbnail_url} className='w-full object-cover rounded' alt="image" />
+        <img src={thumbnail_url} loading="lazy" className='w-full object-cover lg:h-[400px] rounded' alt="image" />
         <h2 className='font-semibold md:font-bold md:text-2xl'>{title}</h2>
         <p className='text-accent text-sm md:text-[16px]'>{details}</p>
         <Link to={`/category/${category_id}`} className='btn btn-secondary rounded-none'>

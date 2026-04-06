@@ -21,7 +21,6 @@ const HomeLayout = () => {
 
   return (
     <div className="drawer lg:drawer-open my-container">
-
       {/* Toggle input */}
       <input id="drawer-toggle" type="checkbox" ref={drawerRef} className="drawer-toggle" />
 
