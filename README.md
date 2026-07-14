@@ -52,8 +52,6 @@ The Dragon News Hub is a modern and fully responsive news web application that p
 }
 ```
 
-> **Note:** Replace the versions above with the exact versions from your `package.json`.
-
 ---
 
 # ⚙️ Getting Started
